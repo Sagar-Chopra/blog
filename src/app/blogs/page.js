@@ -4,7 +4,6 @@ import { fetchBlogs } from "../(utils)/api";
 import Welcomecompoent from "./component/Welcomecompoent";
 import DeleteBlog from "./component/DeleteBlog";
 
-export const revalidate = 60;
 
 const Page = async () => {
   const blogs = await fetchBlogs();
