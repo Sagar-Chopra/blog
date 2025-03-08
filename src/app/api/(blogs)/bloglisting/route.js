@@ -5,11 +5,13 @@ import { NextResponse } from "next/server";
 const blogSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
+  image: { type: String, required: true },
   creator: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
     required: true,
   },
+  creatorName: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
 });
 
