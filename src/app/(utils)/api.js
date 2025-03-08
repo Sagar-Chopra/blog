@@ -1,6 +1,6 @@
 const fetchBlogs = async () => {
     try {
-        const response = await fetch("http://localhost:3000/api/bloglisting");
+        const response = await fetch(`${process.env.url}/api/bloglisting`);
 
         if (!response.ok) {
             throw new Error("Failed to fetch blogs");
@@ -16,7 +16,7 @@ const fetchBlogs = async () => {
 
 const signUp = async (data) => {
     try{
-        const response = await fetch(`http://localhost:3000/api/signup`, {
+        const response = await fetch(`${process.env.url}/api/signup`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -37,7 +37,7 @@ const signUp = async (data) => {
 
 const signIn = async (data) => {
     try{
-        const response = await fetch(`http://localhost:3000/api/signin`, {
+        const response = await fetch(`${process.env.url}/api/signin`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -62,7 +62,7 @@ const signIn = async (data) => {
 
 const logout = async (data) => {
     try {
-        const res = await fetch("/api/logout", { method: "POST" });
+        const res = await fetch(`${process.env.url}/api/logout`, { method: "POST" });
         const data = await res.json();
         alert(data.message);
     } catch (error) {
@@ -72,7 +72,7 @@ const logout = async (data) => {
 
 const createblogs = async (data) => {
     try{
-        const response = await fetch(`http://localhost:3000/api/createblogs`, {
+        const response = await fetch(`${process.env.url}/api/createblogs`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -96,7 +96,7 @@ const fetchBlogById = async (id) => {
         if (!id) {
             return null;
         }
-      const response = await fetch(`http://localhost:3000/api/${id}`, {
+      const response = await fetch(`${process.env.url}/api/${id}`, {
         cache: "no-store", 
       });
   
@@ -113,7 +113,7 @@ const fetchBlogById = async (id) => {
 
 const deleteBlogById = async (del) => {
     try{
-        const response = await fetch(`http://localhost:3000/api/${del}`, {
+        const response = await fetch(`${process.env.url}/api/${del}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
